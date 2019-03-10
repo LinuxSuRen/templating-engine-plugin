@@ -36,6 +36,8 @@ import net.sf.json.JSONObject
 import org.kohsuke.stapler.StaplerRequest
 import org.jenkinsci.plugins.workflow.job.WorkflowJob
 import hudson.model.Descriptor
+import jenkins.YesNoMaybe
+
 
 public class TemplateConfigFolderProperty extends AbstractFolderProperty<AbstractFolder<?>> {
     private GovernanceTier tier 
@@ -48,7 +50,7 @@ public class TemplateConfigFolderProperty extends AbstractFolderProperty<Abstrac
         return tier 
     }
 
-    @Extension 
+    @Extension(dynamicLoadable = YesNoMaybe.NO)
     public final static class DescriptorImpl extends AbstractFolderPropertyDescriptor {
 
         @Override
